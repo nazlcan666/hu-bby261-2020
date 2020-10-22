@@ -10,4 +10,3 @@ text = 'Bir gün, istiklâl ve cumhuriyeti müdafaa mecburiyetine düşersen, va
 arama_sonucu = hesapla('ve', text)
 
 print(arama_sonucu)
- 
