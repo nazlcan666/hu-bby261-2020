@@ -1,0 +1,24 @@
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
+import logging
+logger = tf.get_logger()
+logger.setLevel(logging.ERROR)
+
+inc = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=float)
+cm = np.array([2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86], dtype=float)
+
+for n, m in enumerate(inc):
+	print("{} inç {} cmdir." .format(m, cm[n]))
+olusma = tf.keras.layers.Dense(units = 1,  input_shape=[1])
+
+islem = tf.keras.Sequential([olusma])
+islem.compile(loss="mean_squared_error", optimizer = tf.keras.optimizers.Adam(0.500))
+history = islem.fit(inc, cm, epochs = 1500, verbose = False)
+print("Tamamlandı")
+
+al = input("Hesaplamak istediğiniz inç değerini giriniz: ")
+print("Girdiğiniz Değerin Sonucu: ", islem.predict([int(al)]), "cmdir.")
+
+olmasıGereken = int(al) * 2.54
+print("Tahminimizin yakın olması gereken sonuç {} cmdir" .format(olmasıGereken))
