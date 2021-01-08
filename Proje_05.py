@@ -31,7 +31,7 @@ def oku():
     listele.delete(0,END)
     veri.execute("SELECT * from GelenKutusu")
     for x in veri.fetchall():
-        listele.insert(0, str(x[0]) + x[1] + x[2] + x[3] + x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
 def listebos():
     listele.delete(0,END)
 
@@ -39,12 +39,12 @@ def guncel():
     veri.execute("UPDATE GelenKutusu SET Gönderen=?, Numara=? WHERE idNo=?",(gunGir.get(),Gungir1.get(),gunGir2.get()))
     veritabanim.commit()
     for x in veri.fetchall():
-        listele.insert(0,str(x[0])+x[1]+x[2]+x[3]+x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
 def ara():
     listele.delete(0,END)
     veri.execute("SELECT * FROM GelenKutusu WHERE idNo=?",(araGir.get(),))
     for x in veri.fetchall():
-        listele.insert(0,str(x[0])+x[1]+x[2]+x[3]+x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
 def isimara():
     listele.delete(0, END)
     veri.execute("select * from GelenKutusu where Gönderen LIKE ?", ('%' + isimBul.get() + '%',))
