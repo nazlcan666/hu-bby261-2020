@@ -45,7 +45,11 @@ def ara():
     veri.execute("SELECT * FROM GelenKutusu WHERE idNo=?",(araGir.get(),))
     for x in veri.fetchall():
         listele.insert(0,str(x[0])+x[1]+x[2]+x[3]+x[4])
-
+def isimara():
+    listele.delete(0, END)
+    veri.execute("select * from GelenKutusu where Gönderen LIKE ?", ('%' + isimBul.get() + '%',))
+    for x in veri.fetchall():
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
 def veriSil():
     listele.delete(0, END)
     veri.execute("DELETE FROM GelenKutusu WHERE idNo =? ",(silGir.get(),))
@@ -66,6 +70,13 @@ gunGir2 =Entry(font="Times 13 bold")
 gunGir2.grid(row=6,column= 2)
 gunbut= Button(text="Güncelle",command=guncel,font="Times 17 bold",bg="deeppink",fg="black")
 gunbut.grid(row=7,column= 2)
+
+isim_ara=Label(text="Aramak İstediğniz İsmi Giriniz",font="Times 17 bold")
+isim_ara.grid(row=8,column=2)
+isimBul=Entry(font="Times 13 bold",width=30)
+isimBul.grid(row=9,column=2)
+isimDug=Button(text="Veriyi Ara",command=isimara,font="Times 17 bold",bg="deeppink",fg="black")
+isimDug.grid(row=10, column=2)
 
 araEti=Label(text="Aramak İstediğniz ID Numarasını Giriniz",font="Times 17 bold")
 araEti.grid(row=8,column=0)
