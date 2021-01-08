@@ -31,7 +31,7 @@ def oku():
     listele.delete(0,END)
     veri.execute("SELECT * from GelenKutusu")
     for x in veri.fetchall():
-        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ str(x[2]) +" "+ x[3] +" "+ x[4])
 def listebos():
     listele.delete(0,END)
 
@@ -39,17 +39,17 @@ def guncel():
     veri.execute("UPDATE GelenKutusu SET Gönderen=?, Numara=? WHERE idNo=?",(gunGir.get(),Gungir1.get(),gunGir2.get()))
     veritabanim.commit()
     for x in veri.fetchall():
-        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ str(x[2]) +" "+ x[3] +" "+ x[4])
 def ara():
     listele.delete(0,END)
     veri.execute("SELECT * FROM GelenKutusu WHERE idNo=?",(araGir.get(),))
     for x in veri.fetchall():
-        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ str(x[2]) +" "+ x[3] +" "+ x[4])
 def isimara():
     listele.delete(0, END)
     veri.execute("select * from GelenKutusu where Gönderen LIKE ?", ('%' + isimBul.get() + '%',))
     for x in veri.fetchall():
-        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ x[2] +" "+ x[3] +" "+ x[4])
+        listele.insert(0, str(x[0]) +" "+ x[1] +" "+ str(x[2]) +" "+ x[3] +" "+ x[4])
 def veriSil():
     listele.delete(0, END)
     veri.execute("DELETE FROM GelenKutusu WHERE idNo =? ",(silGir.get(),))
@@ -113,7 +113,7 @@ bas = Button(text="Mesajı Ekle",command=tablo,font="Times 17 bold",bg="deeppink
 bas.grid(row=6,column=0)
 yazzz= Label(text=" ",font="Times 17 bold")
 yazzz.grid(row=3, column=1)
-listele=Listbox(font="Times 10 bold",width=70)
+listele=Listbox(font="Times 12 bold",width=70)
 listele.grid(row=12, column=2)
 
 
