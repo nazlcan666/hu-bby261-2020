@@ -113,7 +113,7 @@ bas = Button(text="Mesajı Ekle",command=tablo,font="Times 17 bold",bg="deeppink
 bas.grid(row=6,column=0)
 yazzz= Label(text=" ",font="Times 17 bold")
 yazzz.grid(row=3, column=1)
-listele=Listbox(font="Times 13 bold",width=60)
+listele=Listbox(font="Times 10 bold",width=70)
 listele.grid(row=12, column=2)
 
 
